@@ -5,3 +5,5 @@
 2.run the python file by typing CMD in the Explorer address bar and typing python <name of python file>.py
 
 Note-you need to be logged in as the LinkedIn user in your default browser.    
+
+used https://try.jsoup.org/ for scraping names from website

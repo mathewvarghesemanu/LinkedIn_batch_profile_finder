@@ -5,8 +5,9 @@
 
 
 import pandas as pd
-
-
+import os.path
+from os import path
+import webbrowser
 # In[65]:
 
 
@@ -20,7 +21,7 @@ df.columns
 
 name_list=df["Name"]
 name_list
-print(len(name_list))
+#print(len(name_list))
 
 
 # In[67]:
@@ -47,10 +48,22 @@ df.shape
 
 
 # In[ ]:
+start_index=0
+if path.exists("checkpoint.txt"):
+    resp=input("Do you want to continue where you left off?(y/n)")
+    if resp in {'n','N'}:
+        start_index=0
+    elif resp in {'y','Y'}:
+        start_index=0;
+        with open ("checkpoint.txt") as f:
+            index=f.readline()
+        start_index=int(index)
 
-
-import webbrowser
-for url in url_name_list:
-    webbrowser.open(url)
-    input(url)
-
+for i,url in enumerate(url_name_list):
+            if i <=start_index:
+                continue
+            webbrowser.open(url)
+            input(url)
+            with open ("checkpoint.txt",'w') as f:
+                f.write(str(i))
+            

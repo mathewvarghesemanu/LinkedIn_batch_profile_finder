@@ -78,7 +78,7 @@ def open_browser(url):
     input : Url<string>
     output : user input<string>
     '''
-    # webbrowser.open(url)
+    webbrowser.open(url)
     return input(url)
 
 
